@@ -1,9 +1,13 @@
-# Spice.destroy_all
+Product.destroy_all
 
-# 50.times do |index|
-#   Spice.create!(name: Faker::Food.spice,
-#                         description: Faker::Lorem.sentence(20, false, 0).chop,
-#                         image_url: “site.com/here_is_a_picture_of_cardamom.jpg")
-# end
+50.times do
+  product = Product.create!(name: Faker::Food.ingedient,
+                  country: Faker::Space.galaxy,
+                  price: Faker::Number.decimal(2,2))
+  5.times do
+    product.reviews.create(author: Faker::Beer.name,
+                  rating: Faker::Number.between(1,5),
+                  content_body: Faker::ChuckNorris.fact)
+end
 
-# p "Created #{Spice.count} spices"
+p "Created #{Product.count} products"
