@@ -42,6 +42,7 @@ group :development, :test do
   gem 'launchy'
   gem 'pry'
   gem 'shoulda-matchers'
+  gem 'rb-readline'
 end
 
 group :development do

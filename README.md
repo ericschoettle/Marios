@@ -3,20 +3,26 @@
 ## Installation Instructions
 
 
-* Ruby version
+* Download:
+```
+git clone https://github.com/ericschoettle/Marios
+cd Marios
+```
 
-* System dependencies
+* Install Gems
+```
+bundle install
+```
 
-* Configuration
+* Start and configure Database
+```
+postgres
+rails db:create db:migrate db:seed
+```
 
-* Database creation
+* Start Web server  
+```
+rails s
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Navigate to 'localhost:3000' in your web browser, and enjoy!

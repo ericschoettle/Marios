@@ -1,0 +1,49 @@
+<h2>Welcome to Mario's global foods! We gather foods from all of the world for your enjoyment!</h2><br>
+
+
+<hr>
+<h4>Recently Added:</h4>
+<% @products.five_most_recent.each do |product| %>
+  <br>
+  <li>
+    <%= link_to(product.name, product_path(product)) %><%= " from #{product.country}, for $#{product.cost}" %> &ensp;&ensp;|&ensp;&ensp;
+    <%= link_to "Remove", product_path(product), data: { confirm: 'Are you certain you want to delete this?', method: :delete }%> | <%= link_to "Update", product_path(product), method: :patch %>
+  </li>
+<% end %>
+<br><hr>
+
+<h4>Most Reviewed:</h4>
+<% @products.five_most_reviewed.each do |product| %>
+  <br>
+  <li>
+    <%= link_to(product.name, product_path(product)) %><%#= " from #{product.country}, for $#{product.cost}" %> &ensp;&ensp;|&ensp;&ensp;
+    <%= link_to "Remove", product_path(product), data: { confirm: 'Are you certain you want to delete this?', method: :delete }%> | <%= link_to "Update", product_path(product), method: :patch %>
+  </li>
+<% end %>
+<br><hr>
+
+<h4>Made in the US of A:</h4>
+<% @products.made_in_usa.each do |product| %>
+  <br>
+  <li>
+    <%= link_to(product.name, product_path(product)) %><%= " from #{product.country}, for $#{product.cost}" %> &ensp;&ensp;|&ensp;&ensp;
+    <%= link_to "Remove", product_path(product), data: { confirm: 'Are you certain you want to delete this?', method: :delete }%> | <%= link_to "Update", product_path(product), method: :patch %>
+</li>
+<% end %>
+
+<p>
+  What, you didn't see that this is Mario's <i><b>global</b></i> foods?
+</p>
+<br><hr>
+
+<h4>The Whole Shebang:</h4>
+<% @products.each do |product| %>
+  <br>
+  <li>
+    <%= link_to(product.name, product_path(product)) %><%= " from #{product.country}, for $#{product.cost}" %> &ensp;&ensp;|&ensp;&ensp;
+    <%= link_to "Remove", product_path(product), data: { confirm: 'Are you certain you want to delete this?', method: :delete }%> | <%= link_to "Update", product_path(product), method: :patch %>
+</li>
+<% end %>
+
+<br><hr>
+<h2><%= link_to("Make new product", new_product_path) %></h2>

@@ -1,0 +1,24 @@
+<h1><%= @product.name %></h1>
+<h3><i><%= @product.country %></i>, $<%= @product.cost %></h3>
+
+<hr>
+
+<% if @product.reviews.any? %>
+  <h1>Reviews of <%= @product.name %>: </h1><br>
+  <% @product.reviews.each do |review| %>
+    <h2><%= review.author %></h2>
+    <% review.rating.times do |star| %>
+      &#9733;
+    <% end %>
+    <% (5 - review.rating).times do |star| %>
+      &#9734;
+    <% end %>
+    <p>
+      <%= review.content_body %>
+    </p><br>
+    <%= link_to("Delete", product_review_path(@product, review), :data => {:confirm => "Are you sure?", :method => "delete"}) %>
+  <% end %>
+<% end %>
+<%= link_to("Add a review", new_product_review_path(@product)) %>
+
+<%= link_to("Home", products_path) %>
