@@ -15,10 +15,11 @@
     <% end %>
     <p>
       <%= review.content_body %>
-    </p><br>
-    <%= link_to("Delete", product_review_path(@product, review), :data => {:confirm => "Are you sure?", :method => "delete"}) %>
+    </p>
+    <%= link_to("Delete", product_review_path(@product, review), :data => {:confirm => "Are you sure?", :method => "delete"}) %><br>
   <% end %>
 <% end %>
+<hr>
 <%= link_to("Add a review", new_product_review_path(@product)) %>
-
+<br>
 <%= link_to("Home", products_path) %>
